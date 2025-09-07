@@ -14,11 +14,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: read
-  id-token: write
-  actions: read
-  security-events: write
+permissions: write-all
 
 jobs:
   build:
