@@ -14,6 +14,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  id-token: write
+  actions: read
+  security-events: write
+
 jobs:
   build:
 
@@ -27,6 +33,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
+    - name: Run tests with Maven
+      run: mvn test
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
