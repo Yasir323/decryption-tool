@@ -21,7 +21,8 @@ public class DecryptionService {
 
     public String decrypt(String encryptedText) {
 
-        try (HttpClient client = HttpClient.newHttpClient()) {
+        HttpClient client = HttpClient.newHttpClient();
+        try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(this.url))
                     .GET()
